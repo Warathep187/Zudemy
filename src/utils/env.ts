@@ -1,7 +1,7 @@
 const isDev = process.env.MODE === "development";
 
 const environment = {
-    PORT: process.env.PORT!,
+    PORT: isDev ? process.env.PORT_DEV!: process.env.PORT!,
     MONGO_URL: isDev ? process.env.MONGO_URL_DEV! : process.env.MONGO_URL!,
     REDIS_URL: isDev ? process.env.REDIS_URL_DEV!: process.env.REDIS_URL!,
 

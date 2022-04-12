@@ -831,6 +831,7 @@ export const reviewCourse = async (req: Request, res: Response) => {
                     });
                     await newReview.save();
                     res.status(204).send();
+                    await Course.updateOne({_id: courseID}, {$inc: {"review.sum": +point, "review.reviews": 1}})
                 }
             }
         }
